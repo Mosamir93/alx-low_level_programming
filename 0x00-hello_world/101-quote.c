@@ -5,7 +5,7 @@
 /**
  * main - entry point for program
  *
- * Return: is 1 to  print an error message to stderr
+ * Return: 1 to  print an error message to stderr
  */
 
 int main(void)
