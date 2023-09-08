@@ -10,10 +10,8 @@
 
 int main(void)
 {
-	const char *message = "and that piece of art is useful\" - Dora Korpar, 201\
-			       5-10-19\n";
-	size_t len = strlen(message);
+	char quo[] = "and that piece of art is useful\" - Dora Korpar, 201i5-10-19\n";
 
-	write(1, message, len);
+	write(1, quo, 59);
 	return (1);
 }
