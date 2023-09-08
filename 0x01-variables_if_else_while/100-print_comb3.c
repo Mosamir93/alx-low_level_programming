@@ -11,9 +11,9 @@ int main(void)
 	int i = 0;
 	int n = 1;
 
-	while (i <= 9)
+	while (i <= 9 && i != n)
 {	putchar(i + '0');
-	while (n <= 9 && i < n && i != n)
+	while (n <= 9 && i < n)
 {	putchar(n + '0');
 
 	if (i != 89)
@@ -21,9 +21,10 @@ int main(void)
 	putchar(',');
 	putchar(' ');
 }
-	i++;
 	n++;
-}}
+}
+	i++;
+}
 	putchar('\n');
 	return (0);
 }
