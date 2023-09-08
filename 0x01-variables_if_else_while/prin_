@@ -3,24 +3,23 @@
 /**
 *main - entry point for program
 *
-*Return: 0 to indicate succes
+*Return: return is 0 to indicate running without error
 */
-
 int main(void)
 {
 	char alpha = 'a';
 	char ALPHA = 'A';
 
-	while (alpha <= 'z')
-{	putchar(alpha);
+	while ('a' <= 'z')
+{
+	putchar (alpha);
 	alpha++;
 }
-	while (ALPHA <= 'Z')
+	while ('A' <= 'Z')
 {
-	putchar(ALPHA);
+	putchar (ALPHA);
 	ALPHA++;
 }
-	putchar('\n');
+	putchar ('\n');
 	return (0);
 }
-
