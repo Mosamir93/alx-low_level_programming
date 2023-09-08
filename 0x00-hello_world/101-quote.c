@@ -11,6 +11,6 @@ int main(void)
 {
 	char quo[] = "and that piece of art is useful\" - Dora Korpar, 201i5-10-19\n";
 
-	write(1, quo, 59);
+	write(stderr, quo, 59);
 	return (1);
 }
