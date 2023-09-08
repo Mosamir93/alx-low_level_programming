@@ -13,7 +13,7 @@ int main(void)
 
 	while (i <= 9)
 {	putchar(i + '0');
-	while (n <= 9 && i < n)
+	while (n <= 9 && i < n && i != n)
 {	putchar(n + '0');
 
 	if (i != 89)
