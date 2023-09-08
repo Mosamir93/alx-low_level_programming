@@ -1,15 +1,14 @@
-#include <stdio.h>
 #include <unistd.h>
 
 /**
  * main - entry point for program
  *
- * Return: 1 to  print an error message to stderr
+ * Return: 1 to print error into stderr
  */
 
 int main(void)
 {
-	char quo[] = "and that piece of art is useful\" - Dora Korpar, 201i5-10-19\n";
+	char quo[] = "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n";
 
 	write(1, quo, 59);
 	return (1);
