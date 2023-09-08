@@ -8,8 +8,8 @@
 
 int main(void)
 {
-	char simple[] = "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n";
+	char sim[] = "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n";
 
-	write(1, simple, 59);
+	write(1, sim, 59);
 	return (1);
 }
