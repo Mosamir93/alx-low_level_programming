@@ -3,42 +3,42 @@
 /**
 *main - entry point for program
 *
-*Return: 0 to indicate succes
+*Return: 0 for success without error
 */
 
 int main(void)
 {
-	int i = 0;
-	int n;
-	int d;
+	int i1 = 0;
+	int i2;
+	int i3;
 
-	while (i <= 9)
-{
-	n = 0;
-	while (n <= 9)
-{
-	d = 0;
-	while (d <= 9)
-{
-	if (i != n && i < n && n != d && n < d)
-{
-	putchar(i + '0');
-	putchar(n + '0');
-	putchar(d + '0');
+	while (i1 <= 9)
+	{
+		i2 = 0;
 
-	if (i != 7)
-{
-	putchar(',');
-	putchar(' ');
-}
-}
-}
-	d++;
-}
-	n++;
-}
-	i++;
+		while (i2 <= 9)
+		{
+			i3 = 0;
+
+			while (i3 <= 9)
+			{
+				if (i1 != i2 && i1 < i2 && i2 != i3 && i2 < i3)
+				{
+					putchar(i1 + '0');
+					putchar(i2 + '0');
+					putchar(i3 + '0');
+					if (i1 != 7)
+					{
+						putchar(',');
+						putchar(' ');
+					}
+				}
+				i3++;
+			}
+			i2++;
+		}
+		i3++;
+	}
 	putchar('\n');
 	return (0);
 }
-
