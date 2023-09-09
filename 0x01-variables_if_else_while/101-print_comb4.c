@@ -37,7 +37,7 @@ int main(void)
 			}
 			i2++;
 		}
-		i3++;
+		i1++;
 	}
 	putchar('\n');
 	return (0);
