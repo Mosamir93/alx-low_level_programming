@@ -21,7 +21,7 @@ int main(void)
 	putchar(i + '0');
 	putchar(n + '0');
 
-	if (i != 89)
+	if (i != 8)
 {
 	putchar(',');
 	putchar(' ');
