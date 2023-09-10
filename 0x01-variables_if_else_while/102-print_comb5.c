@@ -13,18 +13,18 @@ int main(void)
 
 	while (i1 <= 99)
 	{
-		i2 = 0;
+		i2 = i1;
 			while (i2 <= 99)
 			{
-				if (i1 != i2)
+				if (i1 != i2 && i1 < i2)
 				{
 					putchar(i1 / 10 + '0');
-					putchar(i1 %  +'0');
+					putchar(i1 % 10 + '0');
 					putchar(' ');
 					putchar(i2 / 10 + '0');
-					putchar(i2 % +'0');
+					putchar(i2 % 10 + '0');
 
-					if (i1 != 99)
+					if (i1 != 98)
 					{
 						putchar(',');
 						putchar(' ');
