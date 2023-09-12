@@ -6,7 +6,7 @@
  *Return: 0 to indicate success
  */
 
-int _abs(int i);
+int _abs(int i)
 {
 	if (int < 0)
 		i = i * (-1);
