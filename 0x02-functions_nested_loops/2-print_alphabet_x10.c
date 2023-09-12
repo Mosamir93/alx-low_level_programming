@@ -5,7 +5,7 @@
  *
  */
 
-void print_alphabet_10x(void)
+void print_alphabet_x10(void)
 {
 	int i;
 	int j;
