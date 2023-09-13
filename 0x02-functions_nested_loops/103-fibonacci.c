@@ -23,7 +23,7 @@ int main(void)
 
 		if (i3 <= 4000000 && i3 % 2 == 0)
 		{
-			sum += i3
+			sum += i3;
 		}
 
 	}
