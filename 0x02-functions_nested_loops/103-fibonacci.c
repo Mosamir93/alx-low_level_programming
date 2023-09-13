@@ -27,6 +27,6 @@ int main(void)
 		}
 
 	}
-	printf("\n");
+	printf("%lu\n", sum);
 	return (0);
 }
