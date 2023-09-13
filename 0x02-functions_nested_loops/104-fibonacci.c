@@ -12,7 +12,7 @@ int main(void)
 	unsigned long int i2 = 2;
 	unsigned long int i3;
 	unsigned long int n;
-	unsigned long int i4:
+	unsigned long int i4;
 	unsigned long int i5;
 
 	printf("%lu, ", i1);
