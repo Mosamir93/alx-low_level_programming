@@ -12,6 +12,8 @@ int main(void)
 	unsigned long int i2 = 2;
 	unsigned long int i3;
 	unsigned long int n;
+	unsigned long int i4:
+	unsigned long int i5;
 
 	printf("%lu, ", i1);
 	printf("%lu", i2);
@@ -19,9 +21,11 @@ int main(void)
 	for (n = 3; n <= 98; n++)
 	{
 		i3 = i1 + i2;
-		if (i1 + i2 >= 9223372036854775807)
+		i4 = (i1 + i2) / 10000000000;
+		i5 = (i1 + i2) % 10000000000;
+		if (i3 >= 9223372036854775806)
 		{
-			printf(", %lu%lu", (i1 + i2) / 10000000000, (i1 + i2) % 10000000000);
+			printf(", %lu%lu", i4, i5);
 		}
 		else
 		{
