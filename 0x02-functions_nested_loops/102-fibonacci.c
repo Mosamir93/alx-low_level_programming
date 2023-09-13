@@ -8,18 +8,18 @@
 
 int main(void)
 {
-	int i1 = 1;
-	int i2 = 2;
-	int i3;
-	int n;
+	long long int i1 = 1;
+	long long int i2 = 2;
+	long long int i3;
+	long long int n;
 
-	printf("%d, ", i1);
-	printf("%d, ", i2);
+	printf("%lld, ", i1);
+	printf("%lld, ", i2);
 
 	for (n = 3; n <= 50; n++)
 	{
 		i3 = i1 + i2;
-		printf("%d, ", i3);
+		printf("%lld, ", i3);
 		i1 = i2;
 		i2 = i3;
 	}
