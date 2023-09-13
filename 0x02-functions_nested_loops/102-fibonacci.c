@@ -14,12 +14,12 @@ int main(void)
 	unsigned long int n;
 
 	printf("%lu, ", i1);
-	printf("%lu, ", i2);
+	printf("%lu", i2);
 
 	for (n = 3; n <= 50; n++)
 	{
 		i3 = i1 + i2;
-		printf("%lu, ", i3);
+		printf(", %lu", i3);
 		i1 = i2;
 		i2 = i3;
 	}
