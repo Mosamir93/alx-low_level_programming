@@ -12,14 +12,13 @@ int main(void)
 	unsigned long int i2 = 1;
 	unsigned long int i3;
 	unsigned long int n;
-	unsigned long int sum;
+	unsigned long int sum = 0;
 
 	for (n = 3; n <= 50; n++)
 	{
 		i3 = i1 + i2;
 		i1 = i2;
 		i2 = i3;
-		sum = 0;
 
 		if (i3 <= 4000000 && i3 % 2 == 0)
 		{
