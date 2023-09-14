@@ -20,7 +20,7 @@ int main(void)
 	unsigned long int k2;
 
 	printf("%lu, ", i);
-	printf("%lu", k);
+	printf("%lu", j);
 
 	for (n = 3; n <= 88; n++)
 	{
