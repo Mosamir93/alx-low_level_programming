@@ -22,7 +22,7 @@ int main(void)
 	{
 		printf(", %lu", j);
 		j = j + i;
-		i + j - k;
+		i = j - i;
 	}
 
 	i1 = i / 1000000000;
