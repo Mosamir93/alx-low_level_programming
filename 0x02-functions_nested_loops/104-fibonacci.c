@@ -10,22 +10,19 @@ int main(void)
 {
 	unsigned long int i = 1;
 	unsigned long int j = 2;
-	unsigned long int k;
 	unsigned long int n;
 	unsigned long int i1;
 	unsigned long int j1;
 	unsigned long int i2;
 	unsigned long int j2;
 
-	printf("%lu, ", i);
-	printf("%lu", j);
+	printf("%lu", i);
 
-	for (n = 3; n <= 88; n++)
+	for (n = 1; n < 91; n++)
 	{
-		k = i + j;
-		printf(", %lu", k);
-		i = j;
-		j = k;
+		printf(", %lu", j);
+		j = j + i;
+		i + j - k;
 	}
 
 	i1 = i / 1000000000;
@@ -33,7 +30,7 @@ int main(void)
 	j1 = j / 1000000000;
 	j2 = j % 1000000000;
 
-	for (n = 89; n <= 98; n++)
+	for (n = 92; n < 99; ++n)
 	{
 		printf(", %lu%lu", (j1 + j2 / 1000000000), (j2 % 1000000000));
 		j1 = j1 + i1;
