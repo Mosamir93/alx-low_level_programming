@@ -9,12 +9,12 @@
 
 int main(void)
 {
-	long long int n = 612852475143;
-	long long pn, lp;
+	long int n = 612852475143;
+	long int pn, lp;
 
 	while (n % 2 == 0)
 		n = n / 2;
-	for (pn = 3; pn <= sqrt(n); pn += 2)
+	for (pn = 3; pn <= n; pn += 2)
 	{
 		while (n % pn == 0)
 		{
@@ -24,6 +24,6 @@ int main(void)
 	}
 	if (n > 2)
 		lp = n;
-	printf("%lld\n", lp);
+	printf("%ld\n", lp);
 	return (0);
 }
