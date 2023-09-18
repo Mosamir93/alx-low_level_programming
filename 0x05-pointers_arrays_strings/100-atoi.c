@@ -20,8 +20,6 @@ int _atoi(char *s)
 		{
 			n = (n * 10) + (s[i] - '0');
 		}
-		else
-			break;
 	}
 	n *= sign;
 	return (n);
