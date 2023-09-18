@@ -21,7 +21,7 @@ int _atoi(char *s)
 			n = (n * 10) + (s[i] - '0');
 		}
 		else
-			continue;
+			break;
 	}
 	n *= sign;
 	return (n);
