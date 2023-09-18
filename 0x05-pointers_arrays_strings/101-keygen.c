@@ -14,10 +14,10 @@ int main(void)
 	char c;
 
 	srand(time(NULL));
-	for (l = 0; l <= 3000; l + c)
+	for (l = 0; l <= 3000; l += c)
 	{
 		c = rand() % 128;
-		putchar(s);
+		putchar(c);
 	}
 	putchar(3000 - l);
 	return (0);
