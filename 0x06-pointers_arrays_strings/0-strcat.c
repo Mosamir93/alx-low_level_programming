@@ -12,12 +12,12 @@ char *_strcat(char *dest, char *src)
 	unsigned int len1 = 0, len2 = 0;
 	int i;
 
-	for (i = 0; dest[i] != '\0'; i++)
+	while (dest[len1] != '\0')
 	{
 		len1++;
 	}
 
-	for (i = 0; src[i] != '\0'; i++)
+	while (src[len2] != '\0')
 	{
 		len2++;
 	}
