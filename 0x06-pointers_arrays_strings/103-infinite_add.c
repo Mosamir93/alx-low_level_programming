@@ -40,11 +40,11 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		return (0);
 
 	l = 0;
-	while (l <= k / 2)
+	while (l <= k - 1 / 2)
 	{
 		temp = r[l];
-		r[l] = r[k - l];
-		r[k - l] = temp;
+		r[l] = r[(k - 1) - l];
+		r[(k - 1) - l] = temp;
 	l++;
 	}
 	return (r);
