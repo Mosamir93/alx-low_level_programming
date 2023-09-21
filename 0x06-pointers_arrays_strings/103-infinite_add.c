@@ -24,7 +24,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	r[k] = '\0';
 	for (i -= 1, j -= 1; i != 0 || j != 0; i--, j--)
 	{
-		if (i < size_r - 1 && j < size_r)
+		if (k < size_r - 1)
 		{
 			if (i >= 0)
 				sum += (n1[i] - '0');
@@ -45,7 +45,5 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	}
 	if (rem != 0)
 		r[k] = rem + '0';
-	if (k >= size_r - 1)
-		return (0);
 	return (r);
 }
