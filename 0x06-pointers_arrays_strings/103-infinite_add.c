@@ -27,8 +27,8 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 			sum += n2[j] - '0';
 		if (i < 0 && j < 0 && sum == 0)
 			break;
-		sum = sum % 10;
 		rem = sum / 10;
+		sum = sum % 10;
 		r[k] = sum + '0';
 	}
 	r[k] = '\0';
