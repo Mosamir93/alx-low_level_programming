@@ -36,15 +36,15 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	if (rem != 0)
 		r[k] = rem + '0';
 	r[k + 1] = '\0';
-	if (r[k + 1] > size_r - 1)
+	if (r[k + 1] >= size_r - 1)
 		return (0);
 
 	l = 0;
-	while (l <= k - 1 / 2)
+	while (l <= k / 2)
 	{
 		temp = r[l];
-		r[l] = r[(k - 1) - l];
-		r[(k - 1) - l] = temp;
+		r[l] = r[k - l];
+		r[k - l] = temp;
 	l++;
 	}
 	return (r);
