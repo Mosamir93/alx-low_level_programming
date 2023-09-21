@@ -44,7 +44,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	}
 	if (rem != 0)
 		r[k] = rem + '0';
-	else if (k >= size_r - 1)
+	if (k >= size_r - 1)
 		return (0);
 	r[k + 1] = '\0';
 	return (r);
