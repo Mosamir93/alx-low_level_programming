@@ -14,7 +14,7 @@ char *cap_string(char *str)
 
 	for (i = 0; str[i] != '\0'; i++)
 	{
-		for (j = 0; j <= 13; j++)
+		for (j = 0; j < 13; j++)
 		{
 			if (str[i] == sep[j] && str[i + 1] >= 'a' && str[i + 1] <= 'z')
 			{
