@@ -16,15 +16,8 @@ char *cap_string(char *str)
 		for (j = 0; j <= 13; j++)
 		{
 			if (str[i] == sep[j] && str[i + 1] >= 'a' && str[i + 1] <= 'z')
-			{	
-				if (str[i + 1] == sep[j])
-				{
-					str[i + 2] -= 32;
-				}
-				else
-				{
-					str[i + 1] -= 32;
-				}
+			{
+				str[i + 1] -= 32;
 			}
 		}
 	}
