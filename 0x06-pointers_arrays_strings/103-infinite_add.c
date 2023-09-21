@@ -17,35 +17,32 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 
 	for (j = 0; n2[j] != '\0'; j++)
 
-	for (i -= 1, j -= 1, k = 0; i >= 0 || j >= 0; i--, j--, k++)
+	for (i -= 1, j -= 1, k = 0; k < size_r - 1; i--, j--, k++)
 	{
 		if (i >= 0)
 			sum += n1[i] - '0';
 		if (j >= 0)
 			sum += n2[j] - '0';
-		sum += rem;
-		if (sum > 9)
-		{
-			rem = sum % 10;
-			sum /= 10;
-		}
-		else
-			rem = 0;
+		if (i < 0 && j < 0 && sum == 0)
+			break;
+		
+		sum = sum % 10;
+		rem = sum / 10;
 		r[k] = sum + '0';
 	}
-	if (rem != 0)
-		r[k] = rem + '0';
 	r[k] = '\0';
-	if (r[k] >= size_r - 1)
+	if (i >= 0 || j >= 0 || rem)
 		return (0);
 
 	l = 0;
-	while (l <= k / 2)
+	k -= 1;
+	while (l < k)
 	{
-		temp = r[l];
-		r[l] = r[k - l];
-		r[k - l] = temp;
+		temp = r[k];
+		r[k] = r[l];
+		r[l] = temp;
 	l++;
+	k--;
 	}
 	return (r);
 }
