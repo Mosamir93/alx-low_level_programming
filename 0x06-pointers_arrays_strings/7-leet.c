@@ -18,7 +18,7 @@ char *leet(char *str)
 		char a[] = "aeotlAEOTL";
 		for (j = 0; j < 10; j++)
 		{
-			if (str[i] == a[j] && str[i - 1] != '\')
+			if (str[i] == a[j] && str[i] != '\t')
 				str[i] = n[j];
 		}
 	}
