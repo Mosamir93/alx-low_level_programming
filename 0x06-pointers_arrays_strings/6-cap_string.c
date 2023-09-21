@@ -18,7 +18,7 @@ char *cap_string(char *str)
 		{
 			if (str[i] == sep[j] && str[i + 1] >= 'a' && str[i + 1] <= 'z')
 			{	
-				if (str[i] == sep[13])
+				if (str[i] == '\')
 				{
 					str[i + 2] -= 32;
 				}
