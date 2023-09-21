@@ -20,8 +20,8 @@ char *cap_string(char *str)
 				str[i + 1] -= 32;
 			}
 		}
-		if (i == 0 && s[i] >= 'a' && s[i] <= 'z')
-			str[i] -= 32;
+		if (s[0] >= 'a' && s[0] <= 'z')
+			str[0] -= 32;
 	}
 	return (str);
 }
