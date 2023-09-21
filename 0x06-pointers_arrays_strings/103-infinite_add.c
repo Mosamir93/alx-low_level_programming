@@ -22,7 +22,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	else
 		k = j;
 	r[k] = '\0';
-	for (i -= 1, j -= 1; i != 0 || j != 0; i--, j--)
+	for (i -= 1, j -= 1, k -=1; i != 0 || j != 0; i--, j--, k--)
 	{
 		if (k < size_r - 1)
 		{
