@@ -20,6 +20,8 @@ char *cap_string(char *str)
 				str[i + 1] -= 32;
 			}
 		}
+		if (i == 0)
+			str[i] -= 32;
 	}
 	return (str);
 }
