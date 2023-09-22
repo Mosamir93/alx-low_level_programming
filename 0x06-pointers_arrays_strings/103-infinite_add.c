@@ -23,7 +23,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	rem = 0;
 	for (i -= 1, j -= 1, k = 0; k < size_r - 1; i--, j--, k++)
 	{
-		sum = rem;;
+		sum = rem;
 		if (i >= 0)
 			sum += n1[i] - '0';
 		if (j >= 0)
