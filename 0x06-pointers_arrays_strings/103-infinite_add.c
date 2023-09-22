@@ -34,7 +34,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 			sum = sum % 10;
 		}
 		else
-			rem = 0
+			rem = 0;
 		r[k] = sum + '0';
 	}
 	r[k] = '\0';
