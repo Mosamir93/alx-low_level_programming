@@ -40,7 +40,7 @@ void print_buffer(char *b, int size)
 {
 	int k;
 
-	for (k = 0; k <= size && (size - 1) / 10; k++)
+	for (k = 0; k <= (size - 1) / 10 && size; k++)
 	{
 		printf("%08x: ", k * 10);
 		if (k >= size / 10)
