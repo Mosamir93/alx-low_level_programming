@@ -19,10 +19,11 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 
 	if (j > size_r || i > size_r)
 		return (0);
-	rem = 0;
+
 	sum = 0;
 	for (i -= 1, j -= 1, k = 0; k < size_r - 1; i--, j--, k++)
 	{
+		rem = 0;
 		if (i >= 0)
 			sum += n1[i] - '0';
 		if (j >= 0)
