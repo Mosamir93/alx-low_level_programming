@@ -11,7 +11,7 @@
 
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-	int i, j, k, l, temp, rem = 0, sum = 0;
+	int i, j, k, l, temp, rem, sum;
 
 	for (i = 0; n1[i] != '\0'; i++)
 
@@ -19,6 +19,8 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 
 	if (j > size_r || i > size_r)
 		return (0);
+	rem = 0;
+	sum = 0;
 	for (i -= 1, j -= 1, k = 0; k < size_r - 1; i--, j--, k++)
 	{
 		if (i >= 0)
