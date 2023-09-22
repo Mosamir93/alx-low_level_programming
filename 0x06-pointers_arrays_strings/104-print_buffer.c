@@ -8,7 +8,7 @@
  *@y: line of the buffer
  */
 
-void prl(char *b, int x, int y)
+void prl(char *a, int x, int y)
 {
 	int i, j;
 
@@ -17,14 +17,14 @@ void prl(char *b, int x, int y)
 		if (i > x)
 			printf(" ");
 		else
-			printf("%02x", b[y * 10 + i]);
+			printf("%02x", a[y * 10 + i]);
 		if (i % 2 == 0)
 			printf(" ");
 	}
 	for (j = 0; j <= x; j++)
 	{
-		if (b[y * 10 + j] >= 32 && b[y * 10 + j] <= 126)
-			putchar(b[y * 10 + j]);
+		if (a[y * 10 + j] >= 32 && a[y * 10 + j] <= 126)
+			putchar(a[y * 10 + j]);
 		else
 			putchar('.');
 	}
