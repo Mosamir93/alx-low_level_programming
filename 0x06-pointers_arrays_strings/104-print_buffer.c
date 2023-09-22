@@ -18,7 +18,7 @@ void prl(char *a, int x, int y)
 			printf("  ");
 		else
 			printf("%02x", a[y * 10 + i]);
-		if (i % 2 == 0)
+		if (i % 2)
 			putchar(' ');
 	}
 	for (j = 0; j <= x; j++)
@@ -49,6 +49,6 @@ void print_buffer(char *b, int size)
 			prl(b, 9, k);
 		putchar('\n');
 	}
-	if (size <= 0)
+	if (size == 0)
 		putchar('\n');
 }
