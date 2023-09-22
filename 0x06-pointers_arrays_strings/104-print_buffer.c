@@ -3,7 +3,7 @@
 
 /**
  *prl - prints x bytes in a line of buffer
- *@b: buffer to be printed
+ *@a: buffer to be printed
  *@x: bytes to be printed
  *@y: line of the buffer
  */
