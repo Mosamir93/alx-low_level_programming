@@ -21,7 +21,7 @@ void prl(char *b, int x, int y)
 		if (i % 2 == 0)
 			printf(" ");
 	}
-	for (j = 0; j <= b; j++)
+	for (j = 0; j <= x; j++)
 	{
 		if (b[y * 10 + j] >= 32 && b[y * 10 + j] <= 126)
 			putchar(b[y * 10 + j]);
