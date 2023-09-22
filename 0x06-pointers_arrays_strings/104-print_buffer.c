@@ -33,7 +33,7 @@ void prl(char *b, int x, int y)
 /**
  *print_buffer - prints a buffer
  *@b: buffer to be printed
- *@size: size of bytes of the buffer 
+ *@size: size of bytes of the buffer
  */
 
 void print_buffer(char *b, int size)
