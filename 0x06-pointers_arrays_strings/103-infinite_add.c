@@ -13,9 +13,9 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
 	int i, j, k, l, temp, rem, sum;
 
-	for (i = 0; n1[i] != '\0'; i++)
+	for (i = 0; n1[i]; i++)
 
-	for (j = 0; n2[j] != '\0'; j++)
+	for (j = 0; n2[j]; j++)
 
 	if (j > size_r || i > size_r)
 		return (0);
