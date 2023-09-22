@@ -33,8 +33,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 			break;
 
 		rem = sum / 10;
-		sum = sum % 10;
-		r[k] = sum + '0';
+		r[k] = (sum % 10) + '0';
 	}
 	r[k] = '\0';
 	if (i >= 0 || j >= 0 || rem)
