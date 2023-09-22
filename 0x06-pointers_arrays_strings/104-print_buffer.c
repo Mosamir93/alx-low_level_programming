@@ -15,7 +15,7 @@ void prl(char *a, int x, int y)
 	for (i = 0; i < 10; i++)
 	{
 		if (i > x)
-			printf(" ");
+			printf("  ");
 		else
 			printf("%02x", a[y * 10 + i]);
 		if (i % 2 == 0)
