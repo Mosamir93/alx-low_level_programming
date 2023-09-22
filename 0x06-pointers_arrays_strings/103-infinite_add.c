@@ -20,10 +20,10 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	if (i > size_r || j > size_r)
 		return (0);
 
-	sum = 0;
+	rem = 0;
 	for (i -= 1, j -= 1, k = 0; k < size_r - 1; i--, j--, k++)
 	{
-		rem = 0;
+		sum = rem;;
 		if (i >= 0)
 			sum += n1[i] - '0';
 		if (j >= 0)
