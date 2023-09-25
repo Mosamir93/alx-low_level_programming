@@ -20,5 +20,7 @@ char *_strchr(char *s, char c)
 		}
 	}
 	if (s[i + 1] == '\0')
-		return (&s[i + 1]);
+		i += 1;
+		
+	return (&s[i]);
 }
