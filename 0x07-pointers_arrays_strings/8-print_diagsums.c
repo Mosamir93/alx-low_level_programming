@@ -9,22 +9,22 @@
 
 void print_diagsums(int *a, int size)
 {
-	int i, j, sum1, sum2;
+	int i, j, k, sum1, sum2;
 
-	sum1 = 0;
+	sum1 = k = 0;
 	for (i = 0; i < size; i++)
 	{
-		sum1 += a[i];
-		a += size;
+		sum1 += a[i + k];
+		k += size;
 	}
 	printf("%d ,", sum1);
 
-	sum2 = 0;
+	sum2 = k = 0;
 
 	for (j = size - 1; j >= 0; j--)
 	{
-		sum2 += a[j];
-		a += size;
+		sum2 += a[j + k];
+		k += size;
 	}
 	printf("%d", sum2);
 }
