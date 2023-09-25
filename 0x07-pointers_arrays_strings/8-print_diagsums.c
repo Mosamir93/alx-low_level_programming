@@ -21,10 +21,10 @@ void print_diagsums(int *a, int size)
 
 	sum2 = 0;
 
-	for (j = 0; j < size; j++)
+	for (j = size - 1; j >= 0; j--)
 	{
 		sum2 += a[j];
-		a -= size;
+		a += size;
 	}
 	printf("%d", sum2);
 }
