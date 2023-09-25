@@ -19,6 +19,6 @@ char *_strchr(char *s, char c)
 			return (&s[i]);
 		}
 	}
-	if (s[i + 1] == '\0'
+	if (s[i + 1] == '\0')
 		return (&s[i + 1]);
 }
