@@ -18,7 +18,8 @@ int _sqrt_recursion(int n)
 		temp -= 1;
 		if (temp * temp == n && temp > 1)
 			return (temp);
-		temp = (_sqrt_recursion(n));
+		if (temp > 1)
+			temp = (_sqrt_recursion(n));
 	}
 	return (-1);
 }
