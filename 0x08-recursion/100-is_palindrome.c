@@ -24,7 +24,7 @@ int _strlen_recursion(char *s)
 
 int compare(char *s, int begin, int length)
 {
-	if (begin == length || (begin == length + 1)
+	if (begin == length || begin == length + 1)
 		return (1);
 	else if (s[begin] != s[length])
 		return (0);
