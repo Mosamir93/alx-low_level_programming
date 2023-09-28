@@ -31,6 +31,8 @@ int wildcmp(char *s1, char *s2)
 
 	if (s2[len2] == '*' && len2 == 0)
 		return (1);
+	if (*s == 'h' && *(s2 + 1) == '.')
+		return (0);
 	if ((s1[len1] == s2[len2] || s2[len2] == '*') && (*s1 == *s2 || *s2 == '*'))
 		return (1);
 	if (*s1 == *s2)
