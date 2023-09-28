@@ -24,7 +24,7 @@ int wildcmp(char *s1, char *s2)
 {
 	int len1, len2;
 
-	if (s1[0] == '\0' && s2[0] == '\0')
+	if (*s1 == '\0' && *s2 == '\0')
 		return (1);
 	len1 = (_strlen_recursion(s1) -1);
 	len2 = (_strlen_recursion(s2) -1);
@@ -33,9 +33,9 @@ int wildcmp(char *s1, char *s2)
 		return (1);
 	if (len1 == 0 && len2 == 0)
 		return (1);
-	if (s1 + len1 == s2 + len2)
-		return (wildcmp(s1 + (len1 - 1), s2 + (len2 - 1)));
-	if (s2[len2] == '*')
-		return (wildcmp(s1 + (len1), s2 + (len2 - 1)));
+	if (*s1 == *s2)
+		return (wildcmp(*s1 + 1, *s2 + 1));
+	if (*s2 == '*')
+		return (wildcmp(*s1, *s2 + 1));
 	return (0);
 }
