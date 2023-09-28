@@ -10,16 +10,15 @@ int _sqrt_recursion(int n)
 {
 	int temp;
 
-	temp = n;
+	temp = 1;
 	if (n == 1 || n == -1 || n == 0)
 		return (n);
 	else if (n > 1)
 	{
-		temp /= 2;
+		temp += 1;
 		if (temp * temp == n && temp > 1)
 			return (temp);
-		else if (temp > 1)
-			return (_sqrt_recursion(temp));
+		temp = (_sqrt_recursion(n));
 	}
 	return (-1);
 }
