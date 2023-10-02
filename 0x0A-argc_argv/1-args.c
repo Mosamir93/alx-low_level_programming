@@ -8,10 +8,8 @@
 *Return: 0 to indicate success
 */
 
-int main(int argc, char const **argv)
+int main(int argc, char **argv)
 {
-	(void)argc;
-
 	printf("%d\n", argc);
 	return (0);
 }
