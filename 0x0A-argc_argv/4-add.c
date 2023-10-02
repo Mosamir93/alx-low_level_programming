@@ -21,7 +21,7 @@ int main(int argc, char **argv)
 	sum = 0;
 	for (i = 1; i < argc; i++)
 	{
-		c = *argv + i;
+		c = argv[i];
 		for (k = 0; c[k] != '\0'; k++)
 		{
 			if (c[k] < '0' || c[k] > '9')
