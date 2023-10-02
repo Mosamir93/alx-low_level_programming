@@ -1,6 +1,4 @@
 #include <stdio.h>
-#include "main.h"
-#include <stdlib.h>
 
 /**
 *main - prints its name, followed by a new line
@@ -9,10 +7,8 @@
 *Return: 0 to indicate success
 */
 
-int main(int argc, char const **argv)
+int main(int argc, char **argv)
 {
-	void argc;
-
 	printf("%s\n", argv[0]);
 	return (0);
 }
