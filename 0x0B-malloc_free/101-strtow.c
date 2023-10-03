@@ -30,14 +30,14 @@ int _rows(char *str)
 int _columns(char *str)
 {
 	int i, columns;
-	static int k;
+	static int l;
 
 	columns = 0;
-	for (i = k; str[k] != '\0'; i++)
+	for (i = l; str[l] != '\0'; i++)
 	{
 		if (str[i] != ' ')
 			columns += 1;
-		k++;
+		l++;
 		if (str[i] == ' ' && str[i - 1] != ' ')
 			break;
 	}
@@ -88,5 +88,6 @@ char **strtow(char *str)
 		}
 		s[i][j] = '\0';
 	}
+	l = 0;
 	return (s);
 }
