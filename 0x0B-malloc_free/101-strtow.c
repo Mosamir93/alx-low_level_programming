@@ -29,7 +29,7 @@ int _rows(char *str)
 
 int _columns(char *str)
 {
-	int i, colums;
+	int i, columns;
 	static int k;
 
 	columns = 0;
@@ -41,7 +41,7 @@ int _columns(char *str)
 		if (str[i] == ' ' && str[i - 1] != ' ')
 			break;
 	}
-	return (colums);
+	return (columns);
 }
 
 /**
@@ -55,7 +55,7 @@ char **strtow(char *str)
 	int i, j, k, rows, columns;
 	char **s;
 
-	if (str == NULL || str == "")
+	if (str == NULL || str[0] == '\0')
 		return (NULL);
 	rows = _rows(str);
 	s = (char **)malloc(rows * sizeof(char *));
