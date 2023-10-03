@@ -30,7 +30,7 @@ char *str_concat(char *s1, char *s2)
 	s3 = (char *)malloc((len1 + len2 + 1) * sizeof(char));
 	if (s3 == NULL)
 		return (NULL);
-	for (i = 0; i < (len1 + len2); i++)
+	for (i = 0; i <= (len1 + len2); i++)
 	{
 		if (i < len1)
 			s3[i] = s1[i];
