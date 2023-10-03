@@ -88,6 +88,5 @@ char **strtow(char *str)
 		}
 		s[i][j] = '\0';
 	}
-	l = 0;
 	return (s);
 }
