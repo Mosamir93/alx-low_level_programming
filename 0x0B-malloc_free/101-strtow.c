@@ -1,95 +1,88 @@
-#include <stdio.h>
 #include <stdlib.h>
 #include "main.h"
 
+void _r_alloc(char **ar, char *s, int start, int end, int r_num);
+
 /**
-*_rows - calculates number of words in a string
-*@str: string to calculate it's words
-*Return: the words in a string
-*/
+ *_columns - determines the start and end of each word
+ *@ar: the array of arrays to be returned
+ *@s: the string to extracts words from
+ */
 
-int _rows(char *str)
+void _columns(char **ar, char *s)
 {
-	int i, r;
+	int i, start, r_num, flag;
 
-	r = 0;
-	for (i = 0; str[i] != '\0'; i++)
+	start = r_num = flag = 0;
+	for (i = 0; s[i] != '\0'; i++)
 	{
-		if (str[i] == ' ' && str[i - 1] != ' ' && i > 0)
-			r += 1;
+		if (flag == 0 && s[i] != ' ')
+		{
+			flag = 1;
+			start = i;
+		}
+		if (s[i] == ' ' && s[i + 1] != ' ' && i != 1)
+		{
+			flag = 0;
+			_r_alloc(ar, s, start, i, r_num);
+			r_num += 1;
+		}
 	}
-	return (r);
+	if (flag == 1)
+		_r_alloc(ar, s, start, i, r_num);
 }
 
 /**
-*_columns - counts the length of each word
-*@str: string used
-*@l: starting point in string
-*Return: number of letters in each word
-*/
+ *_r_alloc - allocates memory to each word and copies the relevent word
+ *@ar: the array of array to allocate it's rows
+ *@s: string to copy words from
+ *@start: the starting point of the word in the string
+ *@end: the ending point of the word
+ *@r_num: the row number to allocate to
+ */
 
-int _columns(char *str, int l)
+void _r_alloc(char **ar, char *s, int start, int end, int r_num)
 {
-	int i, columns;
+	int i, size;
 
-	columns = 0;
-	for (i = l; str[l] != '\0'; i++, l++)
-	{
-		if (str[i] != ' ')
-			columns += 1;
-		if (str[i] == ' ' && str[i - 1] != ' ' && i > 0)
-			break;
-	}
-	return (columns);
+	size = end - start;
+	ar[r_num] = (char *)malloc((size + 1) * sizeof(char));
+	for (i = 0; start < end; i++, start++)
+		ar[r_num][i] = s[start];
+	ar[r_num][i] = '\0';
 }
 
 /**
-*strtow - splits a string into words
-*@str: string to be split
-*Return: pointer to an array of strings or NULL for failure
-*/
+ *strtow - splits a string into words
+ *@str: string to get words from
+ *Return: pointer to the array of strings or null on failure
+ */
 
 char **strtow(char *str)
 {
-	int i, j, k, rows, columns;
-	char **s;
+	int i, rows, add;
+	char **ar;
 
 	if (str == NULL || str[0] == '\0' || (str[0] == ' ' && str[1] == '\0'))
 		return (NULL);
-	rows = _rows(str);
-	s = (char **)malloc(rows * sizeof(char *));
-	if (s == NULL)
+	rows = add = 0;
+	for (i = 0; str[i]; i++)
+	{
+		if (str[i] != ' ' && add == 0)
+			add = 1;
+		if (str[i] == ' ' && str[i - 1] != ' ' && i != 0)
+		{
+			add = 0;
+			rows += 1;
+		}
+	}
+	rows += add;
+	if (rows == 0)
 		return (NULL);
-	k = 0;
-	for (i = 0; i < rows; i++)
-	{
-		columns = _columns(str, k);
-		s[i] = (char *)malloc((columns + 1) * sizeof(char));
-		if (s[i] == NULL)
-		{
-			for (i--; i >= 0; i--)
-				free(s[i]);
-			free(s);
-			return (NULL);
-		}
-		k += columns + 1;
-	}
-	k = 0;
-	for (i = 0; i < rows; i++)
-	{
-		for (j = 0; str[k] != '\0';)
-		{
-			if (str[k] != ' ')
-			{	s[i][j] = str[k];
-				j++;
-				k++;
-			}
-			if (str[k] == ' ' || str[k] == '\0')
-			{	k++;
-				continue;
-			}
-		}
-		s[i][j] = '\0';
-	}
-	return (s);
+	ar = (char **)malloc((rows + 1) * sizeof(char *));
+	if (ar == NULL)
+		return (NULL);
+	_columns(ar, str);
+	ar[rows] = '\0';
+	return (ar);
 }
