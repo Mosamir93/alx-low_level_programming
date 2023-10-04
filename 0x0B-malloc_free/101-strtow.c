@@ -27,10 +27,9 @@ int _rows(char *str)
 *Return: number of letters in each word
 */
 
-int _columns(char *str)
+int _columns(char *str, int l)
 {
 	int i, columns;
-	static int l;
 
 	columns = 0;
 	for (i = l; str[l] != '\0'; i++, l++)
@@ -63,8 +62,7 @@ char **strtow(char *str)
 	k = 0;
 	for (i = 0; i < rows; i++)
 	{
-		columns = 0;
-		columns = _columns(str);
+		columns = _columns(str, k);
 		s[i] = (char *)malloc((columns + 1) * sizeof(char));
 		if (s[i] == NULL)
 		{
@@ -73,6 +71,7 @@ char **strtow(char *str)
 			free(s);
 			return (NULL);
 		}
+		k += columns + 1;
 	}
 	for (i = 0; i < rows; i++)
 	{
