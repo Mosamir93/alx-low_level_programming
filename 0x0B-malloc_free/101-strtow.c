@@ -82,10 +82,11 @@ char **strtow(char *str)
 		{
 			if (str[k] != ' ')
 				s[i][j] = str[k];
-			if (str[k] == ' ' && str[k - 1] != ' ')
-				break;
 			k++;
+			if (str[k + 1] == ' ' && str[k])
+				break;;
 		}
+		k++;
 		s[i][j] = '\0';
 	}
 	return (s);
