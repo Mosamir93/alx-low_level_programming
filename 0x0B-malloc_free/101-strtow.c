@@ -15,7 +15,7 @@ int _rows(char *str)
 	r = 0;
 	for (i = 0; str[i] != '\0'; i++)
 	{
-		if ((str[i] == ' ' || str[i] == '\0') && str[i - 1] != ' ')
+		if (str[i] == ' ' && str[i - 1] != ' ' && i != 0)
 			r += 1;
 	}
 	return (r);
