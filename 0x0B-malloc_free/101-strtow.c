@@ -83,7 +83,7 @@ char **strtow(char *str)
 				j++;
 				k++;
 			}
-			if (str[k + 1] == ' ' && str[k])
+			if (str[k + 1] == ' ')
 			{	k++;
 				continue;
 			}
