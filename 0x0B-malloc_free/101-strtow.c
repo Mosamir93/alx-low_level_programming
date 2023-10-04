@@ -78,15 +78,13 @@ char **strtow(char *str)
 	k = 0;
 	for (i = 0; i < rows; i++)
 	{
-		for (j = 0; str[k] != '\0'; j++)
+		for (j = 0; str[k] != '\0'; j++, k++)
 		{
 			if (str[k] != ' ')
 				s[i][j] = str[k];
-			k++;
 			if (str[k + 1] == ' ' && str[k])
-				break;;
+				break;
 		}
-		k++;
 		s[i][j] = '\0';
 	}
 	return (s);
