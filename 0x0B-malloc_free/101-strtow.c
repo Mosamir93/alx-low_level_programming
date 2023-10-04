@@ -21,7 +21,7 @@ void _columns(char **ar, char *s)
 			flag = 1;
 			start = i;
 		}
-		if (s[i] == ' ' && s[i + 1] != ' ' && i != 0)
+		if (s[i] == ' ' && s[i - 1] != ' ' && i != 0)
 		{
 			flag = 0;
 			_r_alloc(ar, s, start, i, r_num);
