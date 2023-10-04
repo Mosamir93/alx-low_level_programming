@@ -33,11 +33,10 @@ int _columns(char *str)
 	static int l;
 
 	columns = 0;
-	for (i = l; str[l] != '\0'; i++)
+	for (i = l; str[l] != '\0'; i++, l++)
 	{
 		if (str[i] != ' ')
 			columns += 1;
-		l++;
 		if (str[i] == ' ' && str[i - 1] != ' ' && i != 0)
 			break;
 	}
@@ -75,15 +74,19 @@ char **strtow(char *str)
 			return (NULL);
 		}
 	}
-	k = 0;
 	for (i = 0; i < rows; i++)
 	{
-		for (j = 0; str[k] != '\0'; j++, k++)
+		for (j = 0; str[k] != '\0';)
 		{
 			if (str[k] != ' ')
-				s[i][j] = str[k];
+			{	s[i][j] = str[k];
+				j++;
+				k++;
+			}
 			if (str[k + 1] == ' ' && str[k])
-				break;
+			{	k++;
+				continue;
+			}
 		}
 		s[i][j] = '\0';
 	}
