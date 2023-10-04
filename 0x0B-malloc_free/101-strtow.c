@@ -54,7 +54,7 @@ char **strtow(char *str)
 	int i, j, k, rows, columns;
 	char **s;
 
-	if (str == NULL || str[0] == '\0')
+	if (str == NULL || str[0] == '\0' || (str[0] == ' ' && str[1] == '\0'))
 		return (NULL);
 	rows = _rows(str);
 	s = (char **)malloc(rows * sizeof(char *));
