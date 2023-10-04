@@ -38,7 +38,7 @@ int _columns(char *str)
 		if (str[i] != ' ')
 			columns += 1;
 		l++;
-		if (str[i] == ' ' && str[i - 1] != ' ')
+		if (str[i] == ' ' && str[i - 1] != ' ' && i != 0)
 			break;
 	}
 	return (columns);
