@@ -24,6 +24,7 @@ int _rows(char *str)
 /**
 *_columns - counts the length of each word
 *@str: string used
+*@l: starting point in string
 *Return: number of letters in each word
 */
 
@@ -82,7 +83,7 @@ char **strtow(char *str)
 				j++;
 				k++;
 			}
-			if (str[k + 1] == ' ')
+			if (str[k] == ' ' || str[k] == '\0')
 			{	k++;
 				continue;
 			}
