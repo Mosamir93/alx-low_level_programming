@@ -74,6 +74,7 @@ char **strtow(char *str)
 		}
 		k += columns + 1;
 	}
+	k = 0;
 	for (i = 0; i < rows; i++)
 	{
 		for (j = 0; str[k] != '\0';)
