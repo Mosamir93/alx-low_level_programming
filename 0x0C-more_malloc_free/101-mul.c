@@ -55,7 +55,7 @@ void _isdigit(char *argv)
 int _atoi(char *argv)
 {
 	int i, sign = 1;
-	unsigned long int n;
+	unsigned long long int n;
 
 	n = 0;
 	for (i = 0; argv[i] != '\0'; i++)
@@ -74,7 +74,7 @@ int _atoi(char *argv)
 *@mult: number to be printed
 */
 
-void _print(unsigned long int mult)
+void _print(unsigned long long int mult)
 {
 	if (mult / 10 != 0)
 		_print(mult / 10);
@@ -90,7 +90,7 @@ void _print(unsigned long int mult)
 
 int main(int argc, char **argv)
 {
-	unsigned long int num1, num2, mult;
+	unsigned long long int num1, num2, mult;
 
 	if (argc != 3)
 		printerror();
