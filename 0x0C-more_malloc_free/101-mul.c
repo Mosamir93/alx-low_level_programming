@@ -47,6 +47,8 @@ int _atoi(const char *argv)
 	n = 0;
 	for (i = 0; argv[i] != '\0'; i++)
 	{
+		if (i != 0 && (argv[i] < '0' || argv[i] > '9'))
+			printerror();
 		if (argv[i] == '-')
 			sign *= -1;
 		else
@@ -88,8 +90,6 @@ int main(int argc, char **argv)
 
 	if (argc != 3)
 		printerror();
-	_isdigit(argv[1]);
-	_isdigit(argv[2]);
 	_print(_atoi(argv[1]) * _atoi(argv[2]));
 	_putchar('\n');
 	return (0);
