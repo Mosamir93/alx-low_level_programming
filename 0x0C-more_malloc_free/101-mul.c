@@ -47,7 +47,7 @@ int _atoi(const char *argv)
 	n = 0;
 	for (i = 0; argv[i] != '\0'; i++)
 	{
-		if (i != 0 && (argv[i] < '0' || argv[i] > '9'))
+		if (argv[i] != '-' && (argv[i] < '0' || argv[i] > '9'))
 			printerror();
 		if (argv[i] == '-')
 			sign *= -1;
