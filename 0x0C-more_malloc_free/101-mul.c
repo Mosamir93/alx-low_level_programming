@@ -1,6 +1,20 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "main.h"
+#include <unistd.h>
+
+/**
+ * _putchar - writes the character c to stdout
+ * @c: The character to print
+ *
+ * Return: On success 1.
+ * On error, -1 is returned, and errno is set appropriately.
+ */
+
+int _putchar(char c)
+{
+	return (write(1, &c, 1));
+}
 
 /**
 *printerror - print Error, followed by a new line, and exit status of 98
@@ -71,9 +85,10 @@ void _print(unsigned long int mult)
 *main - entry point
 *@argc: number of arguments
 *@argv: arguments vector
+*Return: 0 for success
 */
 
-void main(int argc, char **argv)
+int main(int argc, char **argv)
 {
 	unsigned long int num1, num2, mult;
 
@@ -85,5 +100,6 @@ void main(int argc, char **argv)
 	num2 = _atoi(argv[2]);
 	mult = num1 * num2;
 	_print(mult);
-	_putchar('\n')
+	_putchar('\n');
+	return (0);
 }
