@@ -74,6 +74,7 @@ void _print(unsigned long long int mult)
 
 int main(int argc, char **argv)
 {
+	(void)argc;
 	unsigned long long int num1, num2, mult;
 
 	if (argc != 3)
