@@ -2,8 +2,8 @@
 #include <stdlib.h>
 
 /**
-*printerror - print Error, followed by a new line, and exit status of 98
-*/
+ *printerror - print Error, followed by a new line, and exit status of 98
+ */
 
 void printerror(void)
 {
@@ -16,9 +16,9 @@ void printerror(void)
 }
 
 /**
-*_isdigit - checks if elements of a string are digits
-*@argv: string to be checked
-*/
+ *_isdigit - checks if elements of a string are digits
+ *@argv: string to be checked
+ */
 
 void _isdigit(char *argv)
 {
@@ -26,16 +26,18 @@ void _isdigit(char *argv)
 
 	for (i = 0; argv[i] != '\0'; i++)
 	{
+		if (argv[0] == '-')
+			continue;
 		if (argv[i] < '0' || argv[i] > '9')
 			printerror();
 	}
 }
 
 /**
-*_atoi - changes string to integers
-*@argv: string to change
-*Return: the number
-*/
+ *_atoi - changes string to integers
+ *@argv: string to change
+ *Return: the number
+ */
 
 int _atoi(const char *argv)
 {
@@ -55,38 +57,40 @@ int _atoi(const char *argv)
 }
 
 /**
-*_print - prints a number
-*@mult: number to be printed
-*/
+ *_print - prints a number
+ *@mult: number to be printed
+ */
 
 void _print(unsigned long int mult)
 {
-	if (mult / 10 != 0)
-		_print(mult / 10);
-	_putchar((mult % 10) + '0');
+	unsigned long int i, div = 1;
+	long int j;
+
+	for (i = 0; mult / div > 9; i++, div *= 10)
+
+		for (j = i; j >= 0; j--, div /= 10)
+		{
+			_putchar((mult / div) + '0');
+			mult %= div;
+		}
 }
 
 /**
-*main - entry point
-*@argc: number of arguments
-*@argv: arguments vector
-*Return: 0 for success
-*/
+ *main - entry point
+ *@argc: number of arguments
+ *@argv: arguments vector
+ *Return: 0 for success
+ */
 
 int main(int argc, char **argv)
-{	
-	unsigned long int num1, num2, mult;
-
+{
 	(void)argc;
 
 	if (argc != 3)
 		printerror();
 	_isdigit(argv[1]);
 	_isdigit(argv[2]);
-	num1 = _atoi(argv[1]);
-	num2 = _atoi(argv[2]);
-	mult = num1 * num2;
-	_print(mult);
+	_print(_atoi(argv[1]) * _atoi(argv[2]));
 	_putchar('\n');
 	return (0);
 }
