@@ -52,7 +52,7 @@ void _isdigit(char *argv)
 *Return: the number
 */
 
-int _atoi(char *argv)
+unsigned long long int _atoi(char *argv)
 {
 	int i, sign = 1;
 	unsigned long long int n;
