@@ -10,7 +10,7 @@
 
 int _strlen(char *s)
 {
-	unsigned long int i, len;
+	int i, len;
 
 	len = 0;
 	for (i = 0; s[i] != '\0'; i++)
@@ -40,7 +40,7 @@ int _isdigit(char i)
 
 char *_mult(char *n1, char *n2)
 {
-	long int len1, len2, i, j, k, l;
+	int len1, len2, i, j, k, l;
 	char *res;
 
 	len1 = _strlen(n1);
@@ -48,7 +48,7 @@ char *_mult(char *n1, char *n2)
 	res = malloc(i = l = len1 + len2);
 	if (res == NULL)
 		printf("Error\n"), exit(98);
-	for (; i >= 0; i--)
+	for (i--; i >= 0; i--)
 		res[i] = 0;
 	for (len1--; len1 >= 0; len1--)
 	{
@@ -86,7 +86,7 @@ char *_mult(char *n1, char *n2)
 
 int main(int argc, char **argv)
 {
-	unsigned long int i, j, k;
+	int i, j, k;
 	char *result;
 
 	if (argc != 3)
