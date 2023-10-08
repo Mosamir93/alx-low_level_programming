@@ -123,7 +123,7 @@ int main(int argc, char **argv)
 	}
 	result2 = malloc((len + 1) * sizeof(char));
 	result2[len] = '\0';
-	for (i = 0; i < len; i++, start++)
+	for (i = 0; i <= len; i++, start++)
 	{
 		result2[i] = result[start];
 		_putchar(result2[i]);
