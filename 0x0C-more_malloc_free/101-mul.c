@@ -123,10 +123,6 @@ int main(int argc, char **argv)
 	(void)argc;
 	if (argc != 3)
 		printerror();
-	if (argv[1] == NULL)
-		printerror();
-	if (argv[2] == NULL)
-		printerror();
 	if (_isdigit(argv[1]) == 1)
 		printerror();
 	if (_isdigit(argv[2]) == 1)
@@ -138,6 +134,10 @@ int main(int argc, char **argv)
 	start = i;
 	for (; result[i] != '\0'; i++)
 		len += 1;
+	if (len == 0)
+	{	len = 1;
+		start -= 1;
+	}
 	result2 = malloc((len + 1) * sizeof(char));
 	if (result2 == NULL)
 	{
