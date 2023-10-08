@@ -115,15 +115,15 @@ int main(int argc, char **argv)
 	_isdigit(argv[1]);
 	_isdigit(argv[2]);
 	result = _mul(argv[1], argv[2]);
-	for (i= 0; result[i] != '0'; i++)
-	
+	for (i = 0; result[i] != '0'; i++)
+
 	len = 0;
 	start = i;
-	for (;result[i] != '\0'; i++)
+	for (; result[i] != '\0'; i++)
 	{
 		len += 1;
 	}
-	result2 = malloc((len + 1) * sizeof (char));
+	result2 = malloc((len + 1) * sizeof(char));
 	result2[len] = '\0';
 	for (i = 0; i < len; i++, start++)
 	{
