@@ -12,22 +12,20 @@ int _strlen(char *s)
 {
 	int i = 0;
 
-	for (; *s++; i++)
-	;
+	while (*s++)
+		i++;
 	return (i);
 }
 
 /**
 *_isdigit - checks if elements of string are digits or not
 *@i: character to check
-*Return: 0 if digits 1 if not
+*Return: 1 if digits 0 if not
 */
 
 int _isdigit(int i)
 {
-	if (i < '0' || i > '9')
-		return (1);
-	return (0);
+	return (i >= '0' && i <= '9');
 }
 
 /**
@@ -47,11 +45,11 @@ char *_mult(char *n1, char *n2)
 	res = malloc(i = l = len1 + len2);
 	if (res == NULL)
 		printf("Error\n"), exit(98);
-	for (i--; i >= 0; i--)
+	while (a--)
 		res[i] = 0;
 	for (len1--; len1 >= 0; len1--)
 	{
-		if (_isdigit(n1[len1]) == 1)
+		if (!_isdigit(n1[len1]))
 		{
 			free(res);
 			printf("Error\n"), exit(98);
@@ -60,7 +58,7 @@ char *_mult(char *n1, char *n2)
 		k = 0;
 		for (len2--; len2 >= 0; len2--)
 		{
-			if (_isdigit(n2[len2]) == 1)
+			if (!_isdigit(n2[len2]))
 			{
 				free(res);
 				printf("Error\n"), exit(98);
