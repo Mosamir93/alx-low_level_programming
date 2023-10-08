@@ -79,6 +79,8 @@ char *_mul(char *num1, char *num2)
 	len1 = _strlen(num1);
 	len2 = _strlen(num2);
 	res = malloc((len1 + len2 + 1) * sizeof(char));
+	if (res == NULL)
+		return (NULL);
 	_memset(res, '0', len1 + len2 + 1);
 	res[len1 + len2] = '\0';
 
@@ -122,6 +124,8 @@ int main(int argc, char **argv)
 		len += 1;
 	}
 	result2 = malloc((len + 1) * sizeof(char));
+	if (result2 == NULL)
+		return (NULL);
 	for (i = 0; i <= len - 1; i++, start++)
 	{
 		result2[i] = result[start];
@@ -130,6 +134,7 @@ int main(int argc, char **argv)
 	result2[len] = '\0';
 	free(result);
 	_putchar(result2[i]);
+	free(result2);
 	_putchar('\n');
 	return (0);
 }
