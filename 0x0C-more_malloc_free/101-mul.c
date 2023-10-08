@@ -79,6 +79,10 @@ char *_mul(char *num1, char *num2)
 	long int i, j, sum, len1, len2;
 	char *res;
 
+	if (num1 == NULL)
+		return (num2);
+	if (num2 == NULL)
+		return (num1);
 	len1 = _strlen(num1);
 	len2 = _strlen(num2);
 	res = malloc((len1 + len2 + 1) * sizeof(char));
