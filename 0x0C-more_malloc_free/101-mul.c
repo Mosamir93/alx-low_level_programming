@@ -75,7 +75,7 @@ int _strlen(char *s)
 
 char *_mul(char *num1, char *num2)
 {
-	long int i, j, sum, len1, len2;
+	long long int i, j, sum, len1, len2;
 	char *res;
 
 	len1 = _strlen(num1);
