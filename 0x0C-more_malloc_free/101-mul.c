@@ -2,6 +2,23 @@
 #include <stdlib.h>
 
 /**
+*_memset - fills memory with a constant byte
+*@s: memory area pointer
+*@b: the constant byte
+*@n: number of bytes to fill
+*Return: pointer to the memory area
+*/
+
+char *_memset(char *s, char b, unsigned int n)
+{
+	unsigned int i;
+
+	for (i = 0; i < n; i++)
+		s[i] = b;
+	return (s);
+}
+
+/**
  *printerror - print Error, followed by a new line, and exit status of 98
  */
 
@@ -34,49 +51,50 @@ void _isdigit(char *argv)
 }
 
 /**
- *_atoi - changes string to integers
- *@argv: string to change
- *Return: the number
- */
+*_strlen - calculates length of a string
+*@s: string to calculate it's length
+*Return: length of the string
+*/
 
-int _atoi(const char *argv)
+int _strlen(char *s)
 {
-	int i, sign = 1;
-	unsigned long int n;
+	unsigned int i, len;
 
-	n = 0;
-	for (i = 0; argv[i] != '\0'; i++)
-	{
-		if (argv[i] != '-' && (argv[i] < '0' || argv[i] > '9'))
-			printerror();
-		if (argv[i] == '-')
-			sign *= -1;
-		else
-			n = (n * 10) + (argv[i] - 48);
-	}
-	n *= sign;
-	return (n);
+	len = 0;
+	for (i = 0; s[i] != '\0'; i++)
+		len += 1;
+	return (len);
 }
 
 /**
- *_print - prints a number
- *@mult: number to be printed
- */
+*_mul - multiplies 2 strings
+*@num1: first string
+*@num2: second string
+*Return: pointer to the resulted string
+*/
 
-void _print(unsigned long int mult)
+char *_mul(char *num1, char *num2)
 {
-	unsigned long int i, div = 1;
-	long int j;
+	int i, j, sum, len1, len2;
+	char *res;
 
-	for (i = 0; mult / div > 9; i++, div *= 10)
+	len1 = _strlen(num1);
+	len2 = _strlen(num2);
+	res = malloc((len1 + len2 + 2) * sizeof(char));
+	_memset(res, '0', len1 + len2 + 1);
+	res[len1 + len2 + 1] = '\0';
 
-		for (j = i; j >= 0; j--, div /= 10)
+	for (i = len1 - 1; i >= 0; i--)
+	{
+		for (j = len2 - 1; j >= 0; j--)
 		{
-			_putchar((mult / div) + '0');
-			mult %= div;
+			sum = (num1[i] - '0') * (num2[j] - '0') + (res[i + j + 1] - '0');
+			res[i + j + 1] = sum % 10 + '0';
+			res[i + j] += sum / 10;
 		}
+	}
+	return (res);
 }
-
 /**
  *main - entry point
  *@argc: number of arguments
@@ -86,11 +104,33 @@ void _print(unsigned long int mult)
 
 int main(int argc, char **argv)
 {
+	int i, len, start;
+	char *result;
+	char *result2;
+
 	(void)argc;
 
 	if (argc != 3)
 		printerror();
-	_print(_atoi(argv[1]) * _atoi(argv[2]));
+	_isdigit(argv[1]);
+	_isdigit(argv[2]);
+	result = _mul(argv[1], argv[2]);
+	for (i= 0; result[i] != '0'; i++)
+	
+	len = 0;
+	start = i;
+	for (;result[i] != '\0'; i++)
+	{
+		len += 1;
+	}
+	result2 = malloc((len + 1) * sizeof (char));
+	result2[len] = '\0';
+	for (i = 0; i < len; i++, start++)
+	{
+		result2[i] = result[start];
+		_putchar(result2[i]);
+	}
+	free(result);
 	_putchar('\n');
 	return (0);
 }
