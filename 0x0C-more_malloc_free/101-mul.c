@@ -81,9 +81,9 @@ char *_mul(char *num1, char *num2)
 	char *res;
 
 	if (*num1 == '\0')
-		return (num2);
+		return (NULL);
 	if (*num2 == '\0')
-		return (num1);
+		return (NULL);
 	len1 = _strlen(num1);
 	len2 = _strlen(num2);
 	res = malloc((len1 + len2 + 1) * sizeof(char));
@@ -97,8 +97,12 @@ char *_mul(char *num1, char *num2)
 		for (j = len2 - 1; j >= 0; j--)
 		{
 			sum = (num1[i] - '0') * (num2[j] - '0') + (res[i + j + 1] - '0');
-			res[i + j + 1] = sum % 10 + '0';
-			res[i + j] += sum / 10;
+			if (sum > 9)
+			{
+				res[i + j + 1] = sum % 10 + '0';
+				res[i + j] += sum / 10;
+			}
+			res[i + j + 1] = sum + '0';
 		}
 	}
 	return (res);
