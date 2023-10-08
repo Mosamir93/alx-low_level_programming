@@ -35,9 +35,10 @@ void printerror(void)
 /**
  *_isdigit - checks if elements of a string are digits
  *@argv: string to be checked
+ *Return: 0 for success 1 for failure
  */
 
-void _isdigit(char *argv)
+int _isdigit(char *argv)
 {
 	unsigned long int i;
 
@@ -45,10 +46,10 @@ void _isdigit(char *argv)
 	{
 		if (argv[i] < '0' || argv[i] > '9')
 		{
-			printerror();
-			return;
+			return (1);
 		}
 	}
+	return (0);
 }
 
 /**
@@ -119,8 +120,10 @@ int main(int argc, char **argv)
 
 	if (argc != 3)
 		printerror();
-	_isdigit(argv[1]);
-	_isdigit(argv[2]);
+	if (_isdigit(argv[1]) == 1)
+		printerror();
+	if (_isdigit(argv[2]) == 1)
+		printerror();
 	result = _mul(argv[1], argv[2]);
 	for (i = 0; result[i] == '0'; i++)
 	;
