@@ -1,66 +1,17 @@
 #include "main.h"
+#include <stdio.h>
+#include <string.h>
 #include <stdlib.h>
 
 /**
-*_memset - fills memory with a constant byte
-*@s: memory area pointer
-*@b: the constant byte
-*@n: number of bytes to fill
-*Return: pointer to the memory area
-*/
-
-char *_memset(char *s, char b, unsigned int n)
-{
-	unsigned long int i;
-
-	for (i = 0; i < n; i++)
-		s[i] = b;
-	return (s);
-}
-
-/**
- *printerror - print Error, followed by a new line, and exit status of 98
- */
-
-void printerror(void)
-{
-	int i;
-	char arr[] = {'E', 'r', 'r', 'o', 'r', '\n'};
-
-	for (i = 0; i < 6; i++)
-		_putchar(arr[i]);
-	exit(98);
-}
-
-/**
- *_isdigit - checks if elements of a string are digits
- *@argv: string to be checked
- *Return: 0 for success 1 for failure
- */
-
-int _isdigit(char *argv)
-{
-	unsigned long int i;
-
-	for (i = 0; argv[i] != '\0'; i++)
-	{
-		if (argv[i] < '0' || argv[i] > '9')
-		{
-			return (1);
-		}
-	}
-	return (0);
-}
-
-/**
-*_strlen - calculates length of a string
-*@s: string to calculate it's length
+*_strlen - measures the length of string
+*@s: string to be measured
 *Return: length of the string
 */
 
 int _strlen(char *s)
 {
-	unsigned int i, len;
+	unsigned long int i, len;
 
 	len = 0;
 	for (i = 0; s[i] != '\0'; i++)
@@ -69,89 +20,91 @@ int _strlen(char *s)
 }
 
 /**
-*_mul - multiplies 2 strings
-*@num1: first string
-*@num2: second string
-*Return: pointer to the resulted string
+*_isdigit - checks if elements of string are digits or not
+*@s: string to be checked
+*Return: 0 if digits 1 if not
 */
 
-char *_mul(char *num1, char *num2)
+int _isdigit(char i)
 {
-	long int i, j, sum, len1, len2;
+	if (i < '0' || i > '9')
+		return (1);
+	return (0);
+}
+
+/**
+*_mult - multiplies 2 strings
+*@n1: first string
+*@n2: second string
+*Return: result string of the multiplication
+*/
+
+char *_mult(char *n1, char *n2)
+{
+	long int len1, len2, i, j, k, l;
 	char *res;
 
-	if (num1 == NULL || num2 == NULL)
-		printerror();
-	len1 = _strlen(num1);
-	len2 = _strlen(num2);
-	res = malloc((len1 + len2 + 1) * sizeof(char));
+	len1 = _strlen(n1);
+	len2 = _strlen(n2);
+	res = malloc(i = l = len1 + len2);
 	if (res == NULL)
-		return (NULL);
-	_memset(res, '0', len1 + len2 + 1);
-	res[len1 + len2] = '\0';
-
-	for (i = len1 - 1; i >= 0; i--)
+		printf("Error\n"), exit(98);
+	for (i--; i >= 0; i--)
+		res[i] = 0;
+	for (len1--; len1 >= 0; len1--)
 	{
-		for (j = len2 - 1; j >= 0; j--)
+		if (_isdigit(n1[len1]) == 1)
 		{
-			sum = (num1[i] - '0') * (num2[j] - '0') + (res[i + j + 1] - '0');
-			if (sum > 9)
-			{
-				res[i + j] += sum / 10;
-				sum %= 10;
-			}
-			res[i + j + 1] = sum + '0';
+			free(res);
+			printf("Error\n"), exit(98);
 		}
+		i = n1[len1] - 48;
+		k = 0;
+		for (len2--; len2 >= 0; len2--)
+		{
+			if (_isdigit(n2[len2]) == 1)
+			{
+				free(res);
+				printf("Error\n"), exit(98);
+			}
+			j = n2[len2] - 48;
+			k += res[len1 + len2 + 1] + (i * j);
+			res[len1 + len2 + 1] = k % 10;
+			k = k / 10;
+		}
+		if (k)
+			res[len1 + len2 + 1] += k;
 	}
 	return (res);
 }
+
 /**
- *main - entry point
- *@argc: number of arguments
- *@argv: arguments vector
- *Return: 0 for success
- */
+*main - entry point
+*@argc: arguments count
+*@argv: arguments vector
+*Return: 0 for success
+*/
 
 int main(int argc, char **argv)
 {
-	int i, len, start;
+	unsigned long int i, j, k;
 	char *result;
-	char *result2;
 
-	(void)argc;
 	if (argc != 3)
-		printerror();
-	if (_isdigit(argv[1]) == 1)
-		printerror();
-	if (_isdigit(argv[2]) == 1)
-		printerror();
-	result = _mul(argv[1], argv[2]);
-	for (i = 0; result[i] == '0'; i++)
-	;
-	len = 0;
-	start = i;
-	for (; result[i] != '\0'; i++)
-		len += 1;
-	if (len == 0 && result[start - 1] == '0')
-	{	len = 1;
-		start -= 1;
-	}
-	result2 = malloc((len + 1) * sizeof(char));
-	if (result2 == NULL)
+		printf("Error\n"), exit(98);
+	k = _strlen(argv[1]) + _strlen(argv[2]);
+	result = _mult(argv[1], argv[2]);
+	i = j = 0;
+	for (; j < k; j++)
 	{
-		free(result);
-		printerror();
-		return (1);
+		if (result[j])
+			i = 1;
+		if (i)
+			_putchar(result[j] + '0');
 	}
-	for (i = 0; i <= len - 1; i++, start++)
-	{
-		result2[i] = result[start];
-		_putchar(result2[i]);
-	}
-	result2[len] = '\0';
-	free(result);
-	_putchar(result2[i]);
-	free(result2);
+	if (!i)
+	_putchar(48);
 	_putchar('\n');
+	free(result);
 	return (0);
 }
