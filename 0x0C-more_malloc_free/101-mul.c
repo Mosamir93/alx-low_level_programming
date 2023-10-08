@@ -99,8 +99,8 @@ char *_mul(char *num1, char *num2)
 			sum = (num1[i] - '0') * (num2[j] - '0') + (res[i + j + 1] - '0');
 			if (sum > 9)
 			{
-				res[i + j + 1] = sum % 10 + '0';
 				res[i + j] += sum / 10;
+				sum %= 10;
 			}
 			res[i + j + 1] = sum + '0';
 		}
