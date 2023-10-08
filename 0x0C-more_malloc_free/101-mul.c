@@ -117,9 +117,12 @@ int main(int argc, char **argv)
 	char *result2;
 
 	(void)argc;
-
 	if (argc != 3)
 		printerror();
+	if (argv[1] == NULL)
+		return (1);
+	if (argv[2] == NULL)
+		return (1);
 	if (_isdigit(argv[1]) == 1)
 		printerror();
 	if (_isdigit(argv[2]) == 1)
@@ -130,9 +133,7 @@ int main(int argc, char **argv)
 	len = 0;
 	start = i;
 	for (; result[i] != '\0'; i++)
-	{
 		len += 1;
-	}
 	result2 = malloc((len + 1) * sizeof(char));
 	if (result2 == NULL)
 	{
