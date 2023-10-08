@@ -48,7 +48,7 @@ char *_mult(char *n1, char *n2)
 	res = malloc(i = l = len1 + len2);
 	if (res == NULL)
 		printf("Error\n"), exit(98);
-	for (i--; i >= 0; i--)
+	for (; i >= 0; i--)
 		res[i] = 0;
 	for (len1--; len1 >= 0; len1--)
 	{
@@ -57,7 +57,7 @@ char *_mult(char *n1, char *n2)
 			free(res);
 			printf("Error\n"), exit(98);
 		}
-		i = n1[len1] - 48;
+		i = n1[len1] - '0';
 		k = 0;
 		for (len2--; len2 >= 0; len2--)
 		{
@@ -66,7 +66,7 @@ char *_mult(char *n1, char *n2)
 				free(res);
 				printf("Error\n"), exit(98);
 			}
-			j = n2[len2] - 48;
+			j = n2[len2] - '0';
 			k += res[len1 + len2 + 1] + (i * j);
 			res[len1 + len2 + 1] = k % 10;
 			k = k / 10;
@@ -93,7 +93,8 @@ int main(int argc, char **argv)
 		printf("Error\n"), exit(98);
 	k = _strlen(argv[1]) + _strlen(argv[2]);
 	result = _mult(argv[1], argv[2]);
-	i = j = 0;
+	i = 0;
+	j = 0;
 	for (; j < k; j++)
 	{
 		if (result[j])
@@ -102,7 +103,7 @@ int main(int argc, char **argv)
 			_putchar(result[j] + '0');
 	}
 	if (!i)
-	_putchar(48);
+		_putchar(48);
 	_putchar('\n');
 	free(result);
 	return (0);
