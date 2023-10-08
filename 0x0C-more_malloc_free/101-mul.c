@@ -21,7 +21,7 @@ int _strlen(char *s)
 
 /**
 *_isdigit - checks if elements of string are digits or not
-*@s: string to be checked
+*@i: character to check
 *Return: 0 if digits 1 if not
 */
 
