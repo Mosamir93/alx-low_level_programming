@@ -11,7 +11,7 @@
 
 char *_memset(char *s, char b, unsigned int n)
 {
-	unsigned int i;
+	unsigned long int i;
 
 	for (i = 0; i < n; i++)
 		s[i] = b;
@@ -39,7 +39,7 @@ void printerror(void)
 
 void _isdigit(char *argv)
 {
-	int i;
+	unsigned long int i;
 
 	for (i = 0; argv[i] != '\0'; i++)
 	{
@@ -75,7 +75,7 @@ int _strlen(char *s)
 
 char *_mul(char *num1, char *num2)
 {
-	int i, j, sum, len1, len2;
+	long int i, j, sum, len1, len2;
 	char *res;
 
 	len1 = _strlen(num1);
@@ -115,7 +115,7 @@ int main(int argc, char **argv)
 	_isdigit(argv[1]);
 	_isdigit(argv[2]);
 	result = _mul(argv[1], argv[2]);
-	for (i = 0; result[i] != '0'; i++)
+	for (i = 0; result[i] == '0'; i++)
 	;
 	len = 0;
 	start = i;
@@ -125,7 +125,7 @@ int main(int argc, char **argv)
 	}
 	result2 = malloc((len + 1) * sizeof(char));
 	result2[len] = '\0';
-	for (i = 0; i < len; i++, start++)
+	for (i = 0; i < len - 1; i++, start++)
 	{
 		result2[i] = result[start];
 		_putchar(result2[i]);
