@@ -75,7 +75,7 @@ int _strlen(char *s)
 
 char *_mul(char *num1, char *num2)
 {
-	long long int i, j, sum, len1, len2;
+	unsigned long int i, j, sum, len1, len2;
 	char *res;
 
 	len1 = _strlen(num1);
@@ -84,13 +84,13 @@ char *_mul(char *num1, char *num2)
 	_memset(res, '0', len1 + len2 + 1);
 	res[len1 + len2 + 1] = '\0';
 
-	for (i = len1 - 1; i >= 0; i--)
+	for (i = len1; i > 0; i--)
 	{
-		for (j = len2 - 1; j >= 0; j--)
+		for (j = len2; j > 0; j--)
 		{
-			sum = (num1[i] - '0') * (num2[j] - '0') + (res[i + j + 1] - '0');
-			res[i + j + 1] = sum % 10 + '0';
-			res[i + j] += sum / 10;
+			sum = (num1[i - 1] - '0') * (num2[j - 1] - '0') + (res[i + j - 1] - '0');
+			res[i + j - 1] = sum % 10 + '0';
+			res[i + j - 2] += sum / 10;
 		}
 	}
 	return (res);
