@@ -141,6 +141,7 @@ int main(int argc, char **argv)
 	result2 = malloc((len + 1) * sizeof(char));
 	if (result2 == NULL)
 	{
+		free(result);
 		printerror();
 		return (1);
 	}
