@@ -79,9 +79,9 @@ char *_mul(char *num1, char *num2)
 	long int i, j, sum, len1, len2;
 	char *res;
 
-	if (num1 == NULL)
+	if (*num1 == '\0')
 		return (num2);
-	if (num2 == NULL)
+	if (*num2 == '\0')
 		return (num1);
 	len1 = _strlen(num1);
 	len2 = _strlen(num2);
