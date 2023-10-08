@@ -120,9 +120,9 @@ int main(int argc, char **argv)
 	if (argc != 3)
 		printerror();
 	if (argv[1] == NULL)
-		return (1);
+		printerror();
 	if (argv[2] == NULL)
-		return (1);
+		printerror();
 	if (_isdigit(argv[1]) == 1)
 		printerror();
 	if (_isdigit(argv[2]) == 1)
