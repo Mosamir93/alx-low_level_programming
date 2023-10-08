@@ -59,7 +59,7 @@ char *_mult(char *n1, char *n2)
 		k = 0;
 		for (len2 = _strlen(n2) - 1; len2 >= 0; len2--)
 		{
-			if (!_isdigit(n2[len2] != 1))
+			if (!_isdigit(n2[len2]))
 			{
 				free(res);
 				printf("Error\n"), exit(98);
