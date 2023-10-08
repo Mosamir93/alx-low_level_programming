@@ -44,7 +44,10 @@ void _isdigit(char *argv)
 	for (i = 0; argv[i] != '\0'; i++)
 	{
 		if (argv[i] < '0' || argv[i] > '9')
+		{
 			printerror();
+			return;
+		}
 	}
 }
 
@@ -125,7 +128,10 @@ int main(int argc, char **argv)
 	}
 	result2 = malloc((len + 1) * sizeof(char));
 	if (result2 == NULL)
+	{
+		printerror();
 		return (1);
+	}
 	for (i = 0; i <= len - 1; i++, start++)
 	{
 		result2[i] = result[start];
