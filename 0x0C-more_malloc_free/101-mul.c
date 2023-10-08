@@ -26,7 +26,7 @@ int _strlen(char *s)
 
 int _isdigit(char i)
 {
-	if (i < '0' && i > '9')
+	if (i < '0' || i > '9')
 		return (1);
 	return (0);
 }
