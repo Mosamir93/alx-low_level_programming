@@ -134,7 +134,7 @@ int main(int argc, char **argv)
 	start = i;
 	for (; result[i] != '\0'; i++)
 		len += 1;
-	if (len == 0)
+	if (len == 0 && (argv[1][0] == '0' || argv[2][0] == '0'))
 	{	len = 1;
 		start -= 1;
 	}
