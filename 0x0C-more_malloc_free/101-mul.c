@@ -125,7 +125,7 @@ int main(int argc, char **argv)
 	}
 	result2 = malloc((len + 1) * sizeof(char));
 	if (result2 == NULL)
-		return (NULL);
+		return (1);
 	for (i = 0; i <= len - 1; i++, start++)
 	{
 		result2[i] = result[start];
