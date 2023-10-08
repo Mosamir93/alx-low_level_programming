@@ -43,7 +43,7 @@ void _isdigit(char *argv)
 
 	for (i = 0; argv[i] != '\0'; i++)
 	{
-		if (argv[0] == '-')
+		if (argv[i] == '-')
 			continue;
 		if (argv[i] < '0' || argv[i] > '9')
 			printerror();
