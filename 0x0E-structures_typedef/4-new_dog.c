@@ -4,7 +4,7 @@
 /**
 *_strlen - calculates length of string
 *@s: string to be measured
-*Returm: length of string
+*Return: length of string
 */
 
 int _strlen(char *s)
@@ -12,7 +12,8 @@ int _strlen(char *s)
 	int i;
 
 	for (i = 0; s[i]; i++)
-		return (i);
+	;
+	return (i);
 }
 
 /**
@@ -22,7 +23,7 @@ int _strlen(char *s)
 *Return: new string
 */
 
-char * _strcpy(char *s1, char* s2)
+char *_strcpy(char *s1, char *s2)
 {
 	int i;
 
