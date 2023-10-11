@@ -3,11 +3,11 @@
 #include <string.h>
 
 /**
-*main - entry point checks arguments count and converts it to integer
-*@argc: arguments count
-*@argv: arguments vector
-*Return: 0 to indicate success
-*/
+ *main - entry point checks arguments count and converts it to integer
+ *@argc: arguments count
+ *@argv: arguments vector
+ *Return: 0 to indicate success
+ */
 
 int main(int argc, char **argv)
 {
@@ -22,10 +22,10 @@ int main(int argc, char **argv)
 
 	for (i = 0; i < n; i++)
 	{
- 		printf("%02hhx", ptr[i]);
- 		if (i != (n - 1))
-		printf(" ");
- 	}
- 	printf("\n");
+		printf("%02hhx", ptr[i]);
+		if (i != (n - 1))
+			printf(" ");
+	}
+	printf("\n");
 	return (0);
 }
