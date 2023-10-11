@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 /**
 *pr_opc - prints opcodes of it's own functiom as an array of bytes
@@ -9,13 +10,14 @@
 void pr_opc(int n)
 {
 	unsigned char *ptr;
-	int i;
+	int i, fun_s;
 
 	ptr = (unsigned char *)&pr_opc;
-	for (i = 0; i < n; i++)
+	fun_s = strlen((char *)ptr);
+	for (i = 0; i < n && i < fun_s; i++)
 	{
 		printf("%02x", ptr[i]);
-		if (i != (n - 1))
+		if (i != (fun_s - 1) && i != (n - 1))
 			printf(" ");
 	}
 	printf("\n");
