@@ -16,7 +16,7 @@ void pr_opc(int n)
 	fun_s = strlen((char *)ptr);
 	for (i = 0; i < n && i < fun_s; i++)
 	{
-		printf("%02x", ptr[i]);
+		printf("%02hhx", ptr[i]);
 		if (i != (fun_s - 1) && i != (n - 1))
 			printf(" ");
 	}
