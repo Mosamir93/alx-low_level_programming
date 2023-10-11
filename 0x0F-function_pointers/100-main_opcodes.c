@@ -13,7 +13,11 @@ void pr_opc(int n)
 
 	ptr = (unsigned char *)&pr_opc;
 	for (i = 0; i < n; i++)
+	{
 		printf("%02x", ptr[i]);
+		if (i != (n - 1))
+			printf(" ");
+	}
 	printf("\n");
 }
 
