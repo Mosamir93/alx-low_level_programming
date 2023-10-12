@@ -61,7 +61,7 @@ void print_all(const char * const format, ...)
 {
 	va_list args;
 	int i, j;
-	char *s = "";
+	char *sep = "";
 	_spec specs[] = {
 		{"c", pr_char},
 		{"i", pr_int},
@@ -79,8 +79,8 @@ void print_all(const char * const format, ...)
 		{
 			if (format[i] == specs[j].spec[0])
 			{
-				specs[j].get_spec(s, args);
-				s = ", ";
+				specs[j].get_spec(sep, args);
+				sep = ", ";
 			}
 			j++;
 		}
