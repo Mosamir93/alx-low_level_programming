@@ -19,7 +19,7 @@ void print_all(const char * const format, ...);
 typedef struct spec
 {
 	char *spec;
-	void (*get_spec)(char *, va_list);
+	void (*get_spec)(va_list);
 } _spec;
 
 #endif

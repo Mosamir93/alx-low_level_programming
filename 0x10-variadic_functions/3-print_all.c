@@ -2,44 +2,40 @@
 
 /**
 *pr_int - prints integers from va_list
-*@s: separator
 *@args: the va_list
 */
 
-void pr_int(char *s, va_list args)
+void pr_int(va_list args)
 {
-	printf("%s%d", s, va_arg(args, int));
+	printf("%d", va_arg(args, int));
 }
 
 /**
 *pr_char - prints characters from va_list
-*@s: separator
 *@args: the va_list
 */
 
-void pr_char(char *s, va_list args)
+void pr_char(va_list args)
 {
-	printf("%s%c", s, va_arg(args, int));
+	printf("%c", va_arg(args, int));
 }
 
 /**
 *pr_float - prints floats from va_list
-*@s: separator
 *@args: the va_list
 */
 
-void pr_float(char *s, va_list args)
+void pr_float(va_list args)
 {
-	printf("%s%f", s, va_arg(args, double));
+	printf("%f", va_arg(args, double));
 }
 
 /**
 *pr_string - prints strings from va_list
-*@s: separator
 *@args: the va_list
 */
 
-void pr_string(char *s, va_list args)
+void pr_string(va_list args)
 {
 	char *string = va_arg(args, char *);
 
@@ -48,7 +44,7 @@ void pr_string(char *s, va_list args)
 	case 1:
 		string = "(nil)";
 	}
-	printf("%s%s", s, string);
+	printf("%s", string);
 }
 
 /**
@@ -61,7 +57,6 @@ void print_all(const char * const format, ...)
 {
 	va_list args;
 	int i, j;
-	char *sep = "";
 	_spec specs[] = {
 		{"c", pr_char},
 		{"i", pr_int},
@@ -79,8 +74,9 @@ void print_all(const char * const format, ...)
 		{
 			if (format[i] == specs[j].spec[0])
 			{
-				specs[j].get_spec(sep, args);
-				sep = ", ";
+				specs[j].get_spec(args);
+				if (format[i + 1] != '\0')
+					printf(", ");
 			}
 			j++;
 		}
