@@ -44,8 +44,10 @@ void pr_string(char *s, va_list args)
 	char *string = va_arg(args, char *);
 
 	switch ((int)(!string))
+	{
 		case 1:
 			string = "(nil)";
+	}
 	printf("%s%s", s, string);
 }
 
