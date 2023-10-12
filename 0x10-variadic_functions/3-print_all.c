@@ -1,4 +1,6 @@
 #include "variadic_functions.h"
+#include <stdarg.h>
+#include <stdlib.h>
 
 /**
 *pr_int - prints integers from va_list
