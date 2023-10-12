@@ -82,6 +82,10 @@ void print_all(const char * const format, ...)
 		}
 		i++;
 	}
-	printf("\n");
+	switch ((int)(!format))
+	{
+	case 0:
+		printf("\n");
+	}
 	va_end(args);
 }
