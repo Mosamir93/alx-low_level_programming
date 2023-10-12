@@ -73,7 +73,7 @@ void print_all(const char * const format, ...)
 	while (format[i] && format)
 	{
 		j = 0;
-		while (specs[j].spec[0] != '\0')
+		while (specs[j].spec)
 		{
 			if (format[i] == specs[j].spec[0])
 			{
@@ -84,6 +84,6 @@ void print_all(const char * const format, ...)
 		}
 		i++;
 	}
-	va_end(args);
 	printf("\n");
+	va_end(args);
 }
