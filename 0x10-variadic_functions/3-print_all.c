@@ -1,6 +1,5 @@
 #include "variadic_functions.h"
 #include <stdarg.h>
-#include <stdlib.h>
 
 /**
 *pr_int - prints integers from va_list
@@ -40,13 +39,16 @@ void pr_float(va_list args)
 void pr_string(va_list args)
 {
 	char *string = va_arg(args, char *);
+	char *str = "(nil)";
 
-	switch ((int)(!string))
-	{
-	case 1:
-		string = "(nil)";
+	switch ((int)(!string)) {
+		case 0:
+			printf("%s", string);
+			break;
+		case 1:
+			printf("%s", str);
+			break;
 	}
-	printf("%s", string);
 }
 
 /**
@@ -84,10 +86,6 @@ void print_all(const char * const format, ...)
 		}
 		i++;
 	}
-	switch ((int)(!format))
-	{
-	case 0:
-		printf("\n");
-	}
+	printf("\n");
 	va_end(args);
 }
