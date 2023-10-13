@@ -41,7 +41,8 @@ void pr_string(va_list args)
 	char *string = va_arg(args, char *);
 	char *str = "(nil)";
 
-	switch ((int)(!string)) {
+	switch ((int)(!string))
+	{
 		case 0:
 			printf("%s", string);
 			break;
@@ -60,7 +61,7 @@ void pr_string(va_list args)
 void print_all(const char * const format, ...)
 {
 	va_list args;
-	int i, j;
+	int i = 0, j;
 	_spec specs[] = {
 		{"c", pr_char},
 		{"i", pr_int},
@@ -70,7 +71,6 @@ void print_all(const char * const format, ...)
 	};
 
 	va_start(args, format);
-	i = 0;
 	while (format[i] && format)
 	{
 		j = 0;
