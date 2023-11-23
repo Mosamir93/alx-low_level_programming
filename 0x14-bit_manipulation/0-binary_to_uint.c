@@ -27,7 +27,7 @@ unsigned int binary_to_uint(const char *b)
 	int i, j;
 
 	x = i = 0;
-	if (!(*b))
+	if (!(*b) || !b)
 		return (0);
 	while (b[i])
 		i++;
