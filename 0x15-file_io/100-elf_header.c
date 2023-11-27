@@ -3,9 +3,8 @@
 #define REV(n) ((n << 24) | (((n >> 16) << 24) >> 16) | \
 		(((n << 16) >> 24) << 16) | (n >> 24))
 /**
- * verify- verify the file to check if is a ELF
+ * verify- verify if the file is ELF
  * @e_ident: the ELF struct
- * return: no return is a void func.
  */
 
 void verify(unsigned char *e_ident)
@@ -23,14 +22,53 @@ void verify(unsigned char *e_ident)
 }
 
 /**
- * magic - print magic number
+ * entry - display entry point
  * @e_ident: the ELF struct
- * return: no return is a void func.
+ * @e_entry: data to print
+ */
+
+void entry(unsigned int e_entry, unsigned char *e_ident)
+{
+	if (e_ident[EI_DATA] == ELFDATA2MSB)
+		e_entry = REV(e_entry);
+
+	printf("  Entry point address:               ");
+	printf("%#x\n", (unsigned int)e_entry);
+}
+
+/**
+ * type - display the type
+ * @e_ident: the ELF struct
+ * @e_type: data used
+ */
+
+void type(unsigned int e_type, unsigned char *e_ident)
+{
+	e_ident[EI_DATA] == ELFDATA2MSB ? e_type = e_type >> 8 : e_type;
+
+	printf("  Type:                              ");
+	if (e_type == ET_NONE)
+		printf("NONE (Unknown type)\n");
+	else if (e_type == ET_REL)
+		printf("REL (Relocatable file)\n");
+	else if (e_type == ET_EXEC)
+		printf("EXEC (Executable file)\n");
+	else if (e_type == ET_DYN)
+		printf("DYN (Shared object file)\n");
+	else if (e_type == ET_CORE)
+		printf("CORE (Core file)\n");
+	else
+		printf("<unknown: %x>\n", e_type);
+}
+
+/**
+ * magic - display the magic number
+ * @e_ident: the ELF struct
  */
 
 void magic(unsigned char *e_ident)
 {
-	int i; /* the index to count the magic bytes */
+	int i;
 	int limit;
 
 	limit = EI_NIDENT - 1;
@@ -41,9 +79,8 @@ void magic(unsigned char *e_ident)
 }
 
 /**
- * class - print the class of the ELF
+ * class - display the ELF class
  * @e_ident: the ELF struct
- * return: no return is a void func.
  */
 
 void class(unsigned char *e_ident)
@@ -60,43 +97,8 @@ void class(unsigned char *e_ident)
 }
 
 /**
- * data - print mthe type of data
+ * osabi - display the osabi
  * @e_ident: the ELF struct
- * return: no return is a void func.
- */
-
-void data(unsigned char *e_ident)
-{
-	printf("  Data:                              ");
-	if (e_ident[EI_DATA] == ELFDATANONE)
-		printf("Unknown data format\n");
-	else if (e_ident[EI_DATA] == ELFDATA2LSB)
-		printf("2's complement, little endian\n");
-	else if (e_ident[EI_DATA] == ELFDATA2MSB)
-		printf("2's complement, big endian\n");
-	else
-		printf("<unknown: %x>\n", e_ident[EI_DATA]);
-}
-
-/**
- * version - print the version of the file
- * @e_ident: the ELF struct
- * return: no return is a void func.
- */
-
-void version(unsigned char *e_ident)
-{
-	printf("  Version:                           ");
-	if (e_ident[EI_VERSION] == EV_CURRENT)
-		printf("%i (current)\n", EV_CURRENT);
-	else
-		printf("%i\n", e_ident[EI_VERSION]);
-}
-
-/**
- * osabi - print the osabi
- * @e_ident: the ELF struct
- * return: no return is a void func.
  */
 void osabi(unsigned char *e_ident)
 {
@@ -126,53 +128,44 @@ void osabi(unsigned char *e_ident)
 }
 
 /**
- * type - print the type
+ * data - display the data type
  * @e_ident: the ELF struct
- * @e_type: data to compare and print.
- * return: no return is a void func.
  */
 
-void type(unsigned int e_type, unsigned char *e_ident)
+void data(unsigned char *e_ident)
 {
-	e_ident[EI_DATA] == ELFDATA2MSB ? e_type = e_type >> 8 : e_type;
-
-	printf("  Type:                              ");
-	if (e_type == ET_NONE)
-		printf("NONE (Unknown type)\n");
-	else if (e_type == ET_REL)
-		printf("REL (Relocatable file)\n");
-	else if (e_type == ET_EXEC)
-		printf("EXEC (Executable file)\n");
-	else if (e_type == ET_DYN)
-		printf("DYN (Shared object file)\n");
-	else if (e_type == ET_CORE)
-		printf("CORE (Core file)\n");
+	printf("  Data:                              ");
+	if (e_ident[EI_DATA] == ELFDATANONE)
+		printf("Unknown data format\n");
+	else if (e_ident[EI_DATA] == ELFDATA2LSB)
+		printf("2's complement, little endian\n");
+	else if (e_ident[EI_DATA] == ELFDATA2MSB)
+		printf("2's complement, big endian\n");
 	else
-		printf("<unknown: %x>\n", e_type);
+		printf("<unknown: %x>\n", e_ident[EI_DATA]);
 }
 
 /**
- * entry - print the entry point
+ * version - display the file version
  * @e_ident: the ELF struct
- * @e_entry: the data to print
- * return: no return is a void func.
  */
 
-void entry(unsigned int e_entry, unsigned char *e_ident)
+void version(unsigned char *e_ident)
 {
-	if (e_ident[EI_DATA] == ELFDATA2MSB)
-		e_entry = REV(e_entry);
-
-	printf("  Entry point address:               ");
-	printf("%#x\n", (unsigned int)e_entry);
+	printf("  Version:                           ");
+	if (e_ident[EI_VERSION] == EV_CURRENT)
+		printf("%i (current)\n", EV_CURRENT);
+	else
+		printf("%i\n", e_ident[EI_VERSION]);
 }
 
+
+
 /**
- * main - read a ELF file.
- * @argc: the number of args
- * @argv: the Args
- * section header: the header of this function is holberton.h
- * Return: 0 in success
+ * main - display an ELF header.
+ * @argc: arguments count
+ * @argv: arguments vector
+ * Return: 0 for success
  */
 
 int main(int argc, char *argv[])
