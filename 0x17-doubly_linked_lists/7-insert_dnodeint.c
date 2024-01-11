@@ -18,15 +18,18 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	if (!(*h) && idx == 0)
 		return (add_dnodeint(h, n));
 	curr = *h;
-	for (i = 0; i < idx - 1 && curr; i++)
-	{
-		curr = curr->next;
-	}
-	if (i != idx - 1 || !curr)
-		return (NULL);
 	node = malloc(sizeof(dlistint_t));
 	if (!node)
 		return (NULL);
+	for (i = 0; i < idx && curr; i++)
+	{
+		curr = curr->next;
+	}
+	if (i != idx || !curr)
+	{
+		free(node);
+		return (NULL);
+	}
 	node->n = n;
 	if (idx == 0)
 	{
