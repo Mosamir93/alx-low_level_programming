@@ -13,7 +13,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	unsigned long int index;
 	hash_node_t *element, *current;
 
-	if (!key || !ht || ht->size == 0 || !(*key))
+	if (!key || !(strlen(key)) || !ht || ht->size == 0 || !(ht->array) || !(*key))
 		return (0);
 	index = key_index((const unsigned char *)key, ht->size);
 	element = malloc(sizeof(hash_node_t));
