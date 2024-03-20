@@ -10,7 +10,7 @@ all: ${OBJ}
 
 .PHONY: clean
 clean:
-	${RM} *~ school
+	${RM} *~ ${NAME}
 
 .PHONY: oclean
 oclean:
