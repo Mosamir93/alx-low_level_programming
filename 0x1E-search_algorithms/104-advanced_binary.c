@@ -14,9 +14,9 @@
 
 int recursive(int *array, size_t low, size_t high, int value)
 {
-	size_t mid, i, index;
+	size_t mid, i;
 
-	if (!array || high < low)
+	if (high < low)
 		return (-1);
 
 	mid = (low + high) / 2;
@@ -27,18 +27,14 @@ int recursive(int *array, size_t low, size_t high, int value)
 		printf("%d, ", array[i]);
 	printf("%d\n", array[i]);
 
-	if (array[low] == value && array[mid] == value)
-		return (low);
+	if (array[mid] == value && (mid == low || array[mid - 1] != value))
+		return (mid);
 
-	else if (array[mid] == value)
-		index = (recursive(array, low, mid, value));
+	if (array[mid] >= value)
+		return (recursive(array, low, mid, value));
 
-	else if (array[mid] < value)
-		index = (recursive(array, mid + 1, high, value));
+	return (recursive(array, mid + 1, high, value));
 
-	else if (array[mid] > value)
-		index = (recursive(array, low, mid - 1, value));
-	return (index);
 }
 
 /**
