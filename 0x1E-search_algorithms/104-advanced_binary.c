@@ -26,12 +26,10 @@ int recursive(int *array, size_t low, size_t high, int value)
 			printf("%d, ", array[i]);
 		printf("%d\n", array[i]);
 
+		if (array[low] == value && array[mid] == value)
+			return (low);
 		if (array[mid] == value)
-		{
-			if (mid == 0 || array[mid - 1] != value)
-				return (mid);
 			return (recursive(array, low, mid, value));
-		}
 
 		else if (array[mid] < value)
 			return (recursive(array, mid + 1, high, value));
