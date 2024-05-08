@@ -28,7 +28,8 @@ int recursive(int *array, size_t low, size_t high, int value)
 
 		if (array[low] == value && array[mid] == value)
 			return (low);
-		if (array[mid] == value)
+
+		else if (array[mid] == value)
 			return (recursive(array, low, mid, value));
 
 		else if (array[mid] < value)
