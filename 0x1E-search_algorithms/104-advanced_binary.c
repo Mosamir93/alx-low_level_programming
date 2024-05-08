@@ -18,7 +18,7 @@ int recursive(int *array, size_t low, size_t high, int value)
 
 	if (low <= high)
 	{
-		mid = low + (high - low) / 2;
+		mid = (low + high) / 2;
 
 		printf("Searching in array: ");
 
